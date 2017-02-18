@@ -4,18 +4,32 @@ using namespace std;
 
 
 
-Car::Car()
+Car::Car() {
+	freeSeats = 0;
+}
+//Defining the constructor
+Car::Car(int freeSeats)
 {
-public:
-	bool hasFreeSeats();
-
-private:
-	int freeSeats;				// Number of free seats
-
-
+	this->freeSeats = freeSeats;
 }
 
 
 Car::~Car()
 {
 }
+
+bool Car::hasFreeSeats() {
+	bool space = false;
+	if (freeSeats > 0)
+		space = true;
+	return space;
+}
+
+void Car::reserveFreeSeat() {
+	
+	if (freeSeats > 0)
+	{
+		freeSeats--;
+	}
+}
+
